@@ -67,7 +67,7 @@
           id: 3,
           title: 'element-ui - 网站快速成型工具',
           img: '../../../static/img/carousel/element.png',
-          link: 'http://element-cn.eleme.io/#/zh-CN'
+          link: 'https://element.eleme.cn/#/zh-CN'
         }]
       }
     }

@@ -5,7 +5,7 @@
         <img src="../../assets/img/icon/icon5.png" alt="" class="readme">
       </a>
       <img src="../../assets/img/icon/icon7.png" alt="" class="spark">
-      <img src="../../assets/img/icon/logo.png" alt="" class="logo">
+      <!-- <img src="../../assets/img/icon/logo.png" alt="" class="logo"> -->
     </div>
 </template>
 

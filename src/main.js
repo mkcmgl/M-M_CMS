@@ -135,11 +135,7 @@ Vue.config.productionTip = false
 Vue.use(mavonEditor)
 
 router.beforeEach((to, from, next) => {
-  console.log(to, from, next)
   if (store.state.username && to.path.startsWith('/admin')) {
-    console.log('tag', '')
-    console.log(store)
-    console.log(router)
       initAdminMenu(router, store)
     }
     if (store.state.username && to.path.startsWith('/login')) {
@@ -151,7 +147,6 @@ router.beforeEach((to, from, next) => {
     if (to.meta.requireAuth) {
       if (store.state.username) {
         axios.get('/authentication').then(resp => {
-          console.log(resp)
           if (resp) {
             next()
           }
@@ -185,12 +180,9 @@ axios.interceptors.response.use(
 const initAdminMenu = (router, store) => {
   // 防止重复触发加载菜单操作
   if (store.state.adminMenus.length > 0) {
-    console.log('tag', '')
     return
   }
-  console.log('tag', '1')
   axios.get('/menu').then(resp => {
-    console.log(resp)
     if (resp && resp.status === 200) {
       var fmtRoutes = formatRoutes(resp.data.result)
       router.addRoutes(fmtRoutes)
