@@ -582,6 +582,12 @@ ul li {
     border-radius: 3px;
 }
 
+.kf-dt {
+    background-color: #f6f6f6;
+    min-width: 1080px;
+}
+
+
 .popmenu1 .poptitle {
     padding-bottom: 15px;
     border-bottom: 1px solid #e1e3e9;
@@ -612,7 +618,7 @@ ul li {
 
 @media screen and (max-width: 1366px) {
     body {
-        min-width: 1280px;
+        min-width: 67.5rem;
     }
 }
 
