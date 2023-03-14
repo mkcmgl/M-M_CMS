@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <link rel="shortcut icon" href="static/favicon.ico">
     <title></title>
 </head>
-    <link rel="stylesheet" type="text/css" href="../css/main.css" />
-    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
 
 <body>
-        <div class="footer-two" style="overflow: hidden;">
-            <div class="bfbw80 marginauto wdf">
-                <div style="width:100%;height:700px" id="barChart"></div>
-            </div>
+    <div class="footer-two" style="overflow: hidden;">
+        <div class="bfbw80 marginauto wdf">
+            <div style="width:100%;height:700px" id="barChart"></div>
         </div>
+    </div>
 
-        <script src="js/echarts.js" type="text/javascript"></script>
-        <script src="js/jquery.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="./js/shandong.json"></script>
+    <script src="js/echarts.js" type="text/javascript"></script>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/shandong.json"></script>
     <script src="js/jquery.min.js" type="text/javascript"></script>
 
 </body>
@@ -28,7 +29,7 @@
     console.log(shandong)
     let nc = document.getElementById("barChart");
     var myChart = this.echarts.init(nc);
-    this.echarts.registerMap("山东", shandong);
+    this.echarts.registerMap("山东", { geoJSON: shandong });
 
     var sdGeoCoordMap = {
         济南市: [117.000923, 36.675807],
@@ -48,257 +49,11 @@
         济宁市: [116.587245, 35.415393],
         德州市: [116.307428, 37.453968],
     };
-    var sdDatas = [
-        {
-            name1: "济南市",
-            name: "济南市供电局",
-            value: [117.050923, 36.678807, 0.5],
-        },
-        {
-            name1: "济南市",
-            name: "济南市供电局23",
-            value: [117.053923, 36.638807, 3.5],
-        },
-        {
-            name1: "济南市",
-            name: "济南市随便吧",
-            value: [117.653923, 37.038807, 11],
-        },
-        {
-            name1: "青岛市",
-            name: "青岛市供电局",
-            value: [120.385173, 36.042982, 7.5],
-        },
-    ];
-    var jinandata = [
-        {
-            name: "东莞市供电局",
-            value: [117.000623, 36.672807, 0.5],
-        },
-        {
-            name: "东莞东城供电分局",
-            value: [117.001923, 36.685807, 1],
-        },
-        {
-            name: "广东电网东莞南城供电局",
-            value: [117.002923, 36.675207, 1],
-        },
-        {
-            name: "沙田供电分局",
-            value: [117.007923, 36.675107, 0.1],
-        },
-        {
-            name: "广东电网(松山湖)",
-            value: [117.040923, 36.625807, 0.4],
-        },
-        {
-            name: "东莞供电局万江供电局",
-            value: [117.100923, 36.695807, 1],
-        },
-        {
-            name: "广东电网公司石龙供电分局",
-            value: [117.003923, 36.673807, 1.4],
-        },
-        {
-            name: "广东电网东莞虎门供电局",
-            value: [117.002913, 36.676607, 0.7],
-        },
-        {
-            name: "广东电网公司中堂供电公司",
-            value: [117.01123, 36.633807, 0.1],
-        },
-        {
-            name: "望牛墩供电公司",
-            value: [117.000333, 36.675557, 0.5],
-        },
-        {
-            name: "东莞供电局石碣供电局",
-            value: [117.000233, 36.674307, 2],
-        },
-        {
-            name: "高埗供电分局",
-            value: [117.445923, 36.874507, 0.9],
-        },
-        {
-            name: "东莞市麻涌供电公司",
-            value: [117.003423, 36.678807, 2],
-        },
-        {
-            name: "东莞市长安供电公司",
-            value: [117.000444, 36.675444, 2],
-        },
-        {
-            name: "东莞市道滘供电公司",
-            value: [117.110923, 36.635807, 0.4],
-        },
-        {
-            name: "东莞市洪梅供电公司",
-            value: [117.0334923, 36.673434, 0.6],
-        },
-        {
-            name: "东莞市厚街供电公司",
-            value: [117.003423, 36.634807, 2],
-        },
-        {
-            name: "东莞市寮步供电公司",
-            value: [117.047923, 36.674807, 2],
-        },
-        {
-            name: "大岭山供电公司",
-            value: [117.046923, 36.635807, 0.1],
-        },
-        {
-            name: "广东电网大朗供电分公司",
-            value: [117.150923, 36.715807, 0.9],
-        },
-        {
-            name: "黄江供电分局",
-            value: [117.003453, 36.672307, 0.5],
-        },
-        {
-            name: "东莞供电局樟木头供电局",
-            value: [117.099923, 36.699807, 2],
-        },
-        {
-            name: "东莞市清溪供电公司",
-            value: [117.089923, 36.689807, 2],
-        },
-        {
-            name: "东莞供电局谢岗分局",
-            value: [117.029923, 36.629807, 2],
-        },
-        {
-            name: "东莞市凤岗镇雁田供电所",
-            value: [117.004443, 36.673337, 0.4],
-        },
-        {
-            name: "东莞常平供电分局",
-            value: [117.004373, 36.6787857, 0.6],
-        },
-        {
-            name: "东莞桥头供电分局",
-            value: [117.003413, 36.623407, 2],
-        },
-        {
-            name: "东莞电网横沥供电分局",
-            value: [117.00032343, 36.6342807, 0.8],
-        },
-        {
-            name: "广东电网公司东莞东坑供电分局",
-            value: [117.0087653, 36.67467807, 0.2],
-        },
-        {
-            name: "塘厦供电局",
-            value: [117.045673, 36.6567307, 2],
-        },
-        {
-            name: "企石供电局",
-            value: [117.003633, 36.6755427, 0.7],
-        },
-        {
-            name: "石排供电公司",
-            value: [117.0456923, 36.645807, 0.1],
-        },
-        {
-            name: "茶山供电分局",
-            value: [117.003453, 36.6345807, 0.2],
-        },
-    ];
-    var qingdaodata = [
-        {
-            name: "东莞市供电局",
-            value: [120.345173, 36.0842982, 0.5],
-        },
-    ];
-    var yantaidata = [
-        {
-            name: "东莞市供电局",
-            value: [121.393382, 37.53497, 0.5],
-        },
-    ];
-    var weifangdata = [
-        {
-            name: "东莞市供电局",
-            value: [119.107078, 36.70925, 0.5],
-        },
-    ];
-    var hezedata = [
-        {
-            name: "东莞市供电局",
-            value: [115.489381, 35.286531, 0.5],
-        },
-    ];
-    var rizhaodata = [
-        {
-            name: "东莞市供电局",
-            value: [119.491208, 35.499588, 0.5],
-        },
-    ];
-    var weihaidata = [
-        {
-            name: "东莞市供电局",
-            value: [122.1199394, 37.599691, 0.5],
-        },
-    ];
-    var zaozhuangdata = [
-        {
-            name: "东莞市供电局",
-            value: [117.597964, 34.896424, 0.5],
-        },
-    ];
-    var linyidata = [
-        {
-            name: "东莞市供电局",
-            value: [118.386443, 35.085282, 0.5],
-        },
-    ];
-    var bingzhoudata = [
-        {
-            name: "东莞市供电局",
-            value: [118.016974, 37.383542, 0.5],
-        },
-    ];
-    var dongyingdata = [
-        {
-            name: "东莞市供电局",
-            value: [118.016974, 37.383542, 0.5],
-        },
-    ];
-    var zibodata = [
-        {
-            name: "东莞市供电局",
-            value: [118.016974, 37.383542, 0.5],
-        },
-    ];
-    var taiandata = [
-        {
-            name: "东莞市供电局",
-            value: [118.016974, 37.383542, 0.5],
-        },
-    ];
-    var liaochengdata = [
-        {
-            name: "东莞市供电局",
-            value: [118.016974, 37.383542, 0.5],
-        },
-    ];
-    var jiningdata = [
-        {
-            name: "东莞市供电局",
-            value: [118.016974, 37.383542, 0.5],
-        },
-    ];
-    var dezhoudata = [
-        {
-            name: "东莞市供电局",
-            value: [118.016974, 37.383542, 0.5],
-        },
-    ];
 
     var that = this;
 
     var opt = {
-        bgColor: "#2742bd", // 画布背景色
+        bgColor: "#3835f8", // 画布背景色
         mapName: "山东", // 地图名
         goDown: true, // 是否下钻
 
@@ -306,23 +61,7 @@
         data: [],
     };
 
-    var defaultOpt = {
-        mapName: "china", // 地图展示
-        goDown: true, // 是否下钻
-        bgColor: "#2742bd", // 画布背景色
-        activeArea: [], // 区域高亮,同echarts配置项
-        data: [],
-        // 下钻回调(点击的地图名、实例对象option、实例对象)
-        callback: function () { },
-        // callback: function (name, option, instance) {},
-    };
-    var opt1 = "";
-    if (opt) {
-        opt1 = $.extend(defaultOpt, opt);
-    }
 
-    // 层级索引
-    var name = [opt1.mapName];
     var idx = 0;
     var pos = {
         //层级位置
@@ -342,12 +81,11 @@
     // 头部导航style样式
     var style = {
         font: '18px "Microsoft YaHei", sans-serif',
-        textColor: "#2742bd",
+        textColor: "#0c3973",
         lineColor: "rgba(147, 235, 248, .8)",
     };
 
-    var mapTextBack =
-        "image://data:image/png;base64,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";
+    // 地图 三角标
     var zuanshi =
         "image://data:image/png;base64,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";
 
@@ -390,6 +128,7 @@
         series.push(
             // 下面圆点
             {
+                // 地图 三角标
                 symbol: zuanshi,
                 symbolSize: 30,
                 label: {
@@ -399,7 +138,7 @@
                         show: false, //是否显示地名
                     },
                     emphasis: {
-                        show: true,
+                        show: false,
                     },
                 },
                 itemStyle: {
@@ -417,15 +156,11 @@
                         })
                         .slice(0, 20)
                 ),
-                showEffectOn: "render",
-                rippleEffect: {
-                    brushType: "stroke",
-                },
-                hoverAnimation: true,
+
             },
             {
                 type: "map",
-                map: "china",
+                map: "shandong",
                 geoIndex: 0,
                 aspectScale: 0.75, //长宽比
                 showLegendSymbol: false, // 存在legend时显示
@@ -440,68 +175,23 @@
                         },
                     },
                 },
-                roam: true,
-                itemStyle: {
-                    normal: {
-                        areaColor: "#031525",
-                        borderColor: "#FFFFFF",
-                    },
-                    emphasis: {
-                        areaColor: "#2B91B7",
-                    },
-                },
+                roam: false,
+                // itemStyle: {
+                //     normal: {
+                //         areaColor: "#031525",
+                //         borderColor: "#FFFFFF",
+                //     },
+                //     emphasis: {
+                //         areaColor: "#0c3973",
+                //     },
+                // },
                 animation: false,
                 data: data_tmp,
             },
-            // 黄圈圈
-            {
-                name: "Top 5",
-                type: "scatter",
-                coordinateSystem: "geo",
-                symbol: mapTextBack,
-                symbolSize: [70, 30],
-                symbolOffset: [0, -33],
-                label: {
-                    normal: {
-                        show: true,
-                        textStyle: {
-                            fontSize: 12,
-                            fontFamily: "Adobe Heiti Std",
-                            fontWeight: "bold",
-                            color: "#FFFFFF",
-                        },
-                        formatter(value) {
-                            if (value.length > 2) {
-                                return "值是：" + value.data.value[2];
-                            } else {
-                                return value.data.name;
-                            }
-                        },
-                    },
-                },
-                itemStyle: {
-                    normal: {
-                        color: "#dfae10", //标志颜色
-                    },
-                },
-                data: converntData(
-                    data_tmp
-                        .sort(function (a, b) {
-                            return b.value - a.value;
-                        })
-                        .slice(0, 20)
-                ), // 流量最大的前
-                showEffectOn: "render",
-                rippleEffect: {
-                    brushType: "stroke",
-                },
-                hoverAnimation: true,
-                zlevel: 1,
-            }
+
         );
     });
 
-    // console.log("series");
     // console.log(series);
 
     var that = this;
@@ -561,12 +251,15 @@
                 }
             },
         },
+        // 整块背景颜色
         backgroundColor: "rgb(0,0,0,0)", //背景色透明
         graphic: [
             {
+
                 type: "group",
                 left: pos.left,
                 top: pos.top - 4,
+                //左上角线
                 children: [
                     {
                         type: "line",
@@ -598,6 +291,7 @@
                     },
                 ],
             },
+            //左上角文字
             {
                 id: name[idx],
                 type: "group",
@@ -648,23 +342,14 @@
                 ],
             },
         ],
-        // 暂时先注释
-        visualMap: {
-            //图例值控制
-            min: 0,
-            max: 1,
-            calculable: true,
-            show: false,
-            color: ["#2B91B7", "#2B91B7", "#2B91B7", "#2B91B7", "#2B91B7"],
-            textStyle: {
-                color: "#fff",
-            },
-        },
+
         //比例缩放
         geo: {
             map: "山东",
             layoutCenter: ["50%", "50%"],
             layoutSize: "125%",
+            select: false,
+
             label: {
                 normal: {
                     show: true,
@@ -678,7 +363,7 @@
                     },
                 },
             },
-            roam: true, //是否允许缩放
+            roam: false, //是否允许缩放
             mapLocation: {
                 width: "110%",
                 height: "97%",
@@ -686,51 +371,51 @@
 
             itemStyle: {
                 normal: {
-                    borderColor: "rgba(147, 235, 248, 1)",
+                    // 边框颜色
+                    borderColor: "rgba(52, 99, 157, 1)",
                     borderWidth: 1,
-                    areaColor: {
-                        type: "radial",
-                        x: 0.5,
-                        y: 0.5,
-                        r: 0.8,
-                        colorStops: [
-                            {
-                                offset: 0,
-                                color: "rgba(147, 235, 248, 0)", // 0% 处的颜色
-                            },
-                            {
-                                offset: 1,
-                                color: "rgba(147, 235, 248, .2)", // 100% 处的颜色
-                            },
-                        ],
-                        globalCoord: false, // 缺省为 false
-                    },
-                    shadowColor: "rgba(128, 217, 248, 1)",
+                    areaColor: "#0c3973",
+                    // areaColor: {
+                    //     type: "radial",
+                    //     x: 1.5,
+                    //     y: 0.5,
+                    //     r: 0.8,
+                    //     globalCoord: false, // 缺省为 false
+                    // },
+                    // shadowColor: "rgba(128, 217, 248, 1)",
                     // shadowColor: 'rgba(255, 255, 255, 1)',
-                    shadowOffsetX: -2,
-                    shadowOffsetY: 2,
-                    shadowBlur: 10,
+                    // shadowOffsetX: -2,
+                    // shadowOffsetY: 2,
+                    // shadowBlur: 10,
                 },
                 emphasis: {
+                    focus: 'none',
+                    disabled: false,
                     itemStyle: {
-                        areaColor: "#FFD181",
-                        borderColor: "#404a59",
+                        areaColor: "#fff",
                         borderWidth: 1,
                     },
                 },
             },
+
         },
         series: series,
     };
     myChart.setOption(option);
-        // myChart.on("click", function (params) {
-        //     var _self = this;
-        //     if (cityMap[params.name]) {
-        //         var url = cityMap[params.name];
-        //         echarts.registerMap(params.name, url);
-        //         // handleEvents.resetOption(_self, option, params.name);
-        //     }
-        // });
+    myChart.on("mouseover", function (params) {
+        // if (!params.data) {// 根据该区域的数据进行判断即可	
+        myChart.dispatchAction({
+            type: 'downplay'
+        });
+    });
 
-
+    // 鼠标设置为小手
+    myChart.getZr().on('mousemove', param => {
+        // var pointInPixel = [param.offsetX, param.offsetY];
+        // if (myChart.containPixel('grid', pointInPixel)) {//若鼠标滑过区域位置在当前图表范围内 鼠标设置为小手
+            myChart.getZr().setCursorStyle('default')
+        // } else {
+        //     myChart.getZr().setCursorStyle('default')
+        // }
+    })
 </script>
