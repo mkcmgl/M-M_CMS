@@ -1459,8 +1459,22 @@ ul li {
     color: #fff;
 }
 
+.map-particles {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+/* 地图粒子 */
+#particles-js {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 0;
+    width: 100%;
 
-/* 解决方案 */
+}
 
 .jj-item1-m {
     margin-top: 20px;
