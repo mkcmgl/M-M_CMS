@@ -62,3 +62,13 @@ npm run build
 
 该命令执行成功之后， 前端 目录下生成一个 `dist` 文件夹，可以将该文件夹中的两个文件 `static` 和 `index.html` 拷贝到 `后台` 项目中 `resources/static/` 目录下，然后直接运行 `后台` 项目，访问 `http://localhost:8443` ，实际上是把前端打包后作为静态文件，但不推荐使用这种方式。
 
+# 门户网站
+
+## 门户位置
+进入门户网站文件位置，使用nginx将项目运行起来， 地图为map_sd.html,地图下钻为test.html
+
+```
+# 文件目录
+cd backbonenode-portal
+
+``` 
