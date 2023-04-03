@@ -404,6 +404,10 @@ ul li {
     margin-right: 80px;
 }
 
+.mr80-kf {
+    margin-right: 36px;
+}
+
 .mgt75 {
     margin-top: 75px;
 }
@@ -477,13 +481,19 @@ ul li {
     flex: 1;
 }
 
+#login-platform {
+    background-color: #1d77e5;
+    border-radius: 2px;
+}
+
 .kfzzx-top {
     margin-right: 10px;
 }
 
 .kfzzx-top-title {
-    font-size: 18px;
+    font-size: 15px;
     color: #fff;
+    line-height: 22px;
 }
 
 .posr {
@@ -622,6 +632,16 @@ ul li {
     }
 }
 
+
+
+.h4-line:after {
+    width: 30px;
+    display: block;
+    border-bottom: 1px solid #1d77e5;
+    content: " ";
+    position: relative;
+    top: 8px;
+}
 
 /* 渝块链 */
 
@@ -1281,11 +1301,17 @@ ul li {
     background-size: cover;
     padding-bottom: 70px;
     color: #FFFFFF;
+
 }
 
 .footer-two {
-    background-color: #000000;
+    /* background-color: #000000; */
+    /* background: url('../static/xhlw-sy/gywm_1.png') center no-repeat; */
     padding: 50px 0px 0px;
+}
+
+.bcg-img {
+    background: url('../static/xhlw-sy/gywm_1.png') center no-repeat;
 }
 
 .footer-two ul {
@@ -1420,6 +1446,17 @@ ul li {
 
 }
 
+.kf-items-all {
+    display: flex;
+}
+
+.kf-items-img {
+    display: block;
+    width: 90px;
+    height: 90px;
+    background-color: #999999;
+}
+
 .kf-items {
     display: flex;
     justify-content: space-between;
@@ -1429,12 +1466,17 @@ ul li {
 }
 
 .kf-item-content a {
-    color: #000000;
+    /* color: #000000; */
+    color: #3982ec;
 }
 
 .kf-link-item {
-    width: 40%;
+    border-radius: 5px;
+    width: 30%;
     margin-bottom: 40px;
+    background-color: rgb(243, 245, 251);
+    text-align: center;
+    line-height: 36px;
 }
 
 .duo {
@@ -1464,6 +1506,7 @@ ul li {
     display: flex;
     justify-content: center;
 }
+
 /* 地图粒子 */
 #particles-js {
     position: absolute;
