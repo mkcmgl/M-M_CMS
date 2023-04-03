@@ -16,6 +16,8 @@
             <div style="width:100%;height:700px">
                 <div id="particles-js">
                 </div>
+                <div class="bcg-img"></div>
+
                 <div style="width: 100%; height: 100%;" id="barChart"></div>
             </div>
 
@@ -42,7 +44,7 @@
     <script type="text/javascript" src="./js/map_data/jining.json"></script>
     <script type="text/javascript" src="./js/map_data/dezhou.json"></script>
     <script type="text/javascript" src="./js/map_data/jinan.json"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
     <script src="js/jquery.min.js" type="text/javascript"></script>
     <script src="js/particles.js"></script>
     <script src="js/particles-app.js"></script>
@@ -1272,22 +1274,18 @@
                 ],
             },
         ],
-        // 暂时先注释
-        // visualMap: {
-        //   //图例值控制
-        //   min: 0,
-        //   max: 1,
-        //   calculable: true,
-        //   show: false,
-        //   color: ["#f44336", "#fc9700", "#ffde00", "#ffde00", "#00eaff"],
-        //   textStyle: {
-        //     color: "#fff",
-        //   },
-        // },
-        geo: {
+
+        geo3D: {
             map: "山东",
             layoutCenter: ["55%", "50%"],
-            layoutSize: "135%",
+            
+             regionHeight: 5,
+              viewControl: {
+                distance: 110, //地图视角 控制初始大小
+                rotateSensitivity: [1, 1],
+            },
+        
+            layoutSize: "125%",
                 select: false,
             label: {
                 normal: {
@@ -1302,18 +1300,20 @@
                     },
                 },
             },
-            roam: true, //是否允许缩放
+            roam: false, //是否允许缩放
             mapLocation: {
                 width: "110%",
                 height: "97%",
             },
 
             itemStyle: {
+                
+
                 normal: {
                     // borderColor: "rgba(147, 235, 248, 1)",
                      borderColor: "rgba(52, 99, 157, 1)",
                     borderWidth: 1,
-                     areaColor: "#0c3973",
+                     areaColor: "rgb(12, 57, 115)",
                     // areaColor: {
                     //     type: "radial",
                     //     x: 0.5,
@@ -1349,6 +1349,7 @@
             
             },
         },
+        
         series: series,
     };
     myChart.setOption(option);
@@ -1387,3 +1388,6 @@
     // 粒子特效
     particlesJS.load('particles-js', './js/particles.json');
 </script>
+
+
+        

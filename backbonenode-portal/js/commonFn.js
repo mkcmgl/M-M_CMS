@@ -22,11 +22,12 @@ $(function() {
         `)
     } else { 
         // 未登录：显示登录按钮，跳转到后台管理登录页
+        // <img src="static/xhlw-sy/denglu.png" class="kzt" width="14" />
+
         loginPlatform.html(`
             <div class="wdf-flex tr">
                 <a href="${loginUrl}" class="header-right">
-                    <img src="static/xhlw-sy/denglu.png" class="kzt" width="14" />
-                    <span style="margin-left:8px; font-size:15px;">登录</span>
+                    <span class="login-top" >登录</span>
                 </a>
             </div>
         `)
