@@ -13,7 +13,7 @@
     <div class="footer-two" style="overflow: hidden;">
         <div class="bfbw80 marginauto  map-particles">
 
-            <div style="width:100%;height:700px">
+            <div style="width:100%;height:1100px">
                 <div id="particles-js">
                 </div>
                 <div style="width: 100%; height: 100%;" id="barChart"></div>
@@ -100,19 +100,19 @@
     var data_tmp = [
         { name: "济南市", value: 24 },
         { name: "青岛市", value: 48 },
-        { name: "烟台市", value: 48 },
+        // { name: "烟台市", value: 48 },
         { name: "潍坊市", value: 61 },
-        { name: "菏泽市", value: 22 },
-        { name: "日照市", value: 18 },
-        { name: "威海市", value: 35 },
+        // { name: "菏泽市", value: 22 },
+        // { name: "日照市", value: 18 },
+        // { name: "威海市", value: 35 },
         { name: "枣庄市", value: 20 },
         { name: "临沂市", value: 52 },
-        { name: "滨州市", value: 88 },
-        { name: "东营市", value: 30 },
-        { name: "淄博市", value: 30 },
-        { name: "泰安市", value: 36 },
-        { name: "聊城市", value: 46 },
-        // { name: "济宁市", value: 56 },
+        // { name: "滨州市", value: 88 },
+        // { name: "东营市", value: 30 },
+        // { name: "淄博市", value: 30 },
+        // { name: "泰安市", value: 36 },
+        // { name: "聊城市", value: 46 },
+        { name: "济宁市", value: 56 },
         // { name: "德州市", value: 28 },
     ];
 
@@ -133,11 +133,18 @@
     var series = [];
     [["济南市", data_tmp]].forEach(function (item, i) {
         series.push(
-            // 下面圆点
+            // // 下面圆点
             {
-                // 地图 三角标
-                symbol: zuanshi,
-                symbolSize: 30,
+
+                type: 'effectScatter',//散点图
+                // symbol: zuanshi,  // 地图 三角标
+                symbolSize: 12,
+                zlevel: 2,
+                rippleEffect: { //涟漪特效
+                    period: 4, //动画时间，值越小速度越快
+                    brushType: 'stroke', //波纹绘制方式 stroke, fill
+                    scale: 4 //波纹圆环最大限制，值越大波纹越大,
+                },
                 label: {
                     normal: {
                         formatter: "{b}",
@@ -145,56 +152,58 @@
                         show: false, //是否显示地名
                     },
                     emphasis: {
-                        show: false,
+                        show: true,
                     },
                 },
                 itemStyle: {
                     normal: {
-                        color: "#fff",
+                        color: "rgb(255,187,96,1)",
+                        //  borderColor: 'rgb(255,187,96,.5)',
+                        //  borderWidth: 10,
                     },
                 },
                 name: "light",
-                type: "scatter",
+                // type: "scatter",
                 coordinateSystem: "geo",
                 data: converntData(
                     data_tmp
-                        .sort(function (a, b) {
-                            return b.value - a.value;
-                        })
-                        .slice(0, 20)
+                    // .sort(function (a, b) {
+                    //     return b.value - a.value;
+                    // })
+                    // .slice(0, 20)
                 ),
 
             },
-            {
-                type: "map",
-                map: "shandong",
-                geoIndex: 0,
-                aspectScale: 0.75, //长宽比
-                showLegendSymbol: false, // 存在legend时显示
-                label: {
-                    normal: {
-                        show: false,
-                    },
-                    emphasis: {
-                        show: false,
-                        textStyle: {
-                            color: "#fff",
-                        },
-                    },
-                },
-                roam: false,
-                // itemStyle: {
-                //     normal: {
-                //         areaColor: "#031525",
-                //         borderColor: "#FFFFFF",
-                //     },
-                //     emphasis: {
-                //         areaColor: "#0c3973",
-                //     },
-                // },
-                animation: false,
-                data: data_tmp,
-            },
+            // {
+            //     type: "map",
+            //     map: "shandong",
+            //     geoIndex: 0,
+            //     aspectScale: 0.75, //长宽比
+            //     showLegendSymbol: false, // 存在legend时显示
+            //     label: {
+            //         normal: {
+            //             show: false,
+            //         },
+            //         emphasis: {
+            //             // show: false,
+            //             textStyle: {
+            //                 color: "#fff",
+            //             },
+            //         },
+            //     },
+            //     roam: false,
+            //     // itemStyle: {
+            //     //     normal: {
+            //     //         areaColor: "#031525",
+            //     //         borderColor: "#FFFFFF",
+            //     //     },
+            //     //     emphasis: {
+            //     //         areaColor: "#0c3973",
+            //     //     },
+            //     // },
+            //     animation: false,
+            //     data: data_tmp,
+            // },
 
         );
     });
@@ -204,62 +213,76 @@
     var that = this;
     var option = {
         tooltip: {
-            trigger: "item",
-            backgroundColor: "rgba(0,0,0,0)",
+            trigger: 'item',
+            backgroundColor: 'rgba(0,0,0,0)',
+            borderColor: 'rgba(0,0,0,0)',
+            borderWidth: 0,
+            // backgroundColor: "transparent",
+            textStyle:{
+                  color: 'rgb(0,0,0,0)',
+                  width:1,
+                  fontSize: 0,
+            },
+            // padding: 0,
+            // // borderColor: 'transparent',
+            // showDelay: 0,
+            // hideDelay: 0,
+            // enterable: true,
+            // transitionDuration: 0,
+            // extraCssText: 'z-index:100',
             formatter: function (item) {
                 if (item.componentSubType === "lines") {
                     var tipHtml1 = "";
                     tipHtml1 =
-                        '<div style="background:#fff;border-radius:10px;padding-top:10px;box-shadow:0 0 10px #666">' +
-                        '<div style="color:#fff;height:20px;border-radius:6px;font-size:12px;line-height:20px;background-color:#5861a2;text-align:center;margin:0 2px;">' +
-                        item.data.name +
-                        "</div>" +
-                        '<div style="text-align:center;color:#494949;padding:8px 6px">' +
-                        '<span style="font-size:18px;font-weight:bold;">' +
-                        "在运机组数：" +
-                        item.data.value +
-                        " " +
-                        "</span>" +
+                        '<div  style="background:#fff;display:flex ;width:131px ;overflow: hidden;height: 41px; align - items: center; border - radius: 10px; box - shadow: 0 0 2px rgb(88, 222, 251);">' +
+                        '<divstyle=" background-color: #FFBB60; width: 40px;height: 41px;display: flex; align-items: center;    text-align: center;    padding-left: 12px;">' +
+                        `<img src='./static/sdzwqkl/1969.png' alt='#'>` +
+                        '</div>' +
+                        '<div style="color: #000;height: 41px;line-height: 41px;width: 93px;font-size:14px; background - color: #fff; text - align: center;">' +
+                        '电子证照链' +
                         "</div>" +
                         "</div>";
                     return tipHtml1;
                 } else if (item.componentSubType === "effectScatter") {
                     var tipHtml2 = "";
                     tipHtml2 =
-                        '<div style="background:#fff;border-radius:10px;padding-top:10px;box-shadow:0 0 10px #666">' +
-                        '<div style="color:#fff;height:20px;border-radius:6px;font-size:12px;line-height:20px;background-color:#5861a2;text-align:center;margin:0 2px;">' +
-                        item.data.name +
-                        "</div>" +
-                        '<div style="text-align:center;color:#494949;padding:8px 6px">' +
-                        '<span style="font-size:18px;font-weight:bold;">' +
-                        "在运机组数：" +
-                        item.data.value[2] +
-                        " " +
-                        "</span>" +
+                        '<div  style="background:#fff;display:flex ;width:131px ;overflow: hidden;height: 41px; align-items: center; border-radius: 10px; box-shadow: 0 0 2px rgb(88, 222, 251);">' +
+                        '<div style=" background-color: #FFBB60; width: 40px;height: 41px;display: flex; align-items: center;    text-align: center;    padding-left: 12px;">' +
+                        `<img src='./static/sdzwqkl/1969.png' alt='#'>` +
+                        '</div>' +
+                        '<div style="color: #000;height: 41px;line-height: 41px;width: 93px;font-size:14px; background-color: #fff; text-align: center;">' +
+                        '电子证照链' +
+
+
                         "</div>" +
                         "</div>";
                     return tipHtml2;
                 } else if (item.componentSubType === "scatter") {
                     var tipHtml3 = "";
                     tipHtml3 =
-                        '<div style="background:#fff;border-radius:10px;padding-top:10px;box-shadow:0 0 10px #666">' +
-                        '<div style="color:#fff;height:20px;border-radius:6px;font-size:12px;line-height:20px;background-color:#5861a2;text-align:center;margin:0 2px;">' +
-                        item.data.name +
-                        "</div>" +
-                        '<div style="text-align:center;color:#494949;padding:8px 6px">' +
-                        '<span style="font-size:18px;font-weight:bold;">' +
-                        "在运机组数：" +
-                        item.data.value[2] +
-                        " " +
-                        "</span>" +
+                        '<div  style="background:#fff;display:flex ;width:131px ;overflow: hidden;height: 41px; align-items: center; border-radius: 10px; box-shadow: 0 0 2px rgb(88, 222, 251);">' +
+                        '<div style=" background-color: #FFBB60; width: 40px;height: 41px;display: flex; align-items: center;    text-align: center;    padding-left: 12px;">' +
+                        `<img src='./static/sdzwqkl/1969.png' alt='#'>` +
+                        '</div>' +
+                        '<div style="color: #000;height: 41px;line-height: 41px;width: 93px;font-size:14px; background-color: #fff; text-align: center;">' +
+                        '电子证照链' +
+
+
                         "</div>" +
                         "</div>";
                     return tipHtml3;
                 }
             },
+            itemStyle: {
+                normal: {
+                    color: "rgb(255,187,96,1)",
+                    borderColor: 'rgb(255,187,96,.5)',
+                    borderWidth: 10,
+                },
+            },
         },
         // 整块背景颜色
-        backgroundColor: "rgb(0,0,0,0)", //背景色透明
+        // backgroundColor: "rgb(0,0,0,0)", //背景色透明
         graphic: [
             {
 
@@ -353,13 +376,23 @@
         //比例缩放
         geo: {
             map: "山东",
-            layoutCenter: ["55%", "50%"],
-            layoutSize: "125%",
-            select: false,
-
+            layoutCenter: ["50%", "50%"],
+            layoutSize: "100%",
+    
+              selectedMode: "single",//选中一个
+            select: {
+                label: {
+                        show: true,
+                        color: "#fff",//选中区域文字颜色
+                },
+                itemStyle: {
+                    areaColor: "rgb(0, 60, 121 ,.7)", //选中区域颜色
+                }
+            },
+          
             label: {
                 normal: {
-                    show: true,
+                    show: true, //地图区域文字显示及颜色
                     textStyle: {
                         color: "#fff",
                     },
@@ -379,9 +412,9 @@
             itemStyle: {
                 normal: {
                     // 边框颜色
-                    borderColor: "rgba(52, 99, 157, 1)",
+                    borderColor: "rgba(132,188, 223)",
                     borderWidth: 1,
-                    areaColor: "#0c3973",
+                    areaColor: "rgb(15,72,138,0.5)",
                     // areaColor: {
                     //     type: "radial",
                     //     x: 1.5,
@@ -394,15 +427,33 @@
                     // shadowOffsetX: -2,
                     // shadowOffsetY: 2,
                     // shadowBlur: 10,
+                    //  inRange: {  // 渐变颜色范围
+
+                    //     color: ['#00FA9A', '#00FF7F', '#7FFF00'],
+
+                    // },
                 },
-                emphasis: {
-                    focus: 'none',
-                    disabled: false,
-                    itemStyle: {
-                        areaColor: "#fff",
-                        borderWidth: 1,
+                emphasis: {  
+                    areaColor: "rgb(0, 60, 121 ,.7)", //鼠标移动到区域的颜色
+                    label: {
+                        show: true,
+                          position: 'top',
+                          distance :100,
+                        color: "red",//选中区域文字颜色
+                        with:1000,
                     },
+                    itemStyle: {
+                        areaColor: "red", //选中区域颜色
+                         color: "red"
+                    },
+                    focus: 'none',
+                    disabled: false, //,
+                    // itemStyle: {
+                    //     areaColor: "#fff",
+                    //     borderWidth: 1,
+                    // },
                 },
+
             },
 
         },
@@ -417,14 +468,14 @@
     });
 
     // 鼠标设置为小手
-    myChart.getZr().on('mousemove', param => {
-        // var pointInPixel = [param.offsetX, param.offsetY];
-        // if (myChart.containPixel('grid', pointInPixel)) {//若鼠标滑过区域位置在当前图表范围内 鼠标设置为小手
-        myChart.getZr().setCursorStyle('default')
-        // } else {
-        //     myChart.getZr().setCursorStyle('default')
-        // }
-    })
+    // myChart.getZr().on('mousemove', param => {
+    //     // var pointInPixel = [param.offsetX, param.offsetY];
+    //     // if (myChart.containPixel('grid', pointInPixel)) {//若鼠标滑过区域位置在当前图表范围内 鼠标设置为小手
+    //     myChart.getZr().setCursorStyle('default')
+    //     // } else {
+    //     //     myChart.getZr().setCursorStyle('default')
+    //     // }
+    // })
 
     // 粒子特效
     particlesJS.load('particles-js', './js/particles.json');

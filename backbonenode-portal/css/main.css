@@ -92,6 +92,11 @@ ul li {
     font-size: 50px;
 }
 
+.fwnm {
+    font-family: PingFang SC-常规体, PingFang SC;
+    font-weight: normal;
+}
+
 /** 颜色相关 **/
 
 .bg0 {
@@ -135,6 +140,12 @@ ul li {
 }
 
 .fcolorf-kf {
+    color: #333333;
+    font-family: PingFang SC-Heavy, PingFang SC;
+    font-weight: 800;
+}
+
+.fcolorf-qkl {
     color: #333333;
     font-family: PingFang SC-Heavy, PingFang SC;
     font-weight: 800;
@@ -363,8 +374,16 @@ ul li {
     margin-bottom: 10px;
 }
 
+.mb15 {
+    margin-bottom: 15px;
+}
+
 .mr20p {
     margin-right: 20%;
+}
+
+.mr14 {
+    margin-right: 14px;
 }
 
 .ml20p {
@@ -379,12 +398,20 @@ ul li {
     margin-bottom: 20px !important;
 }
 
+.mb37 {
+    margin-bottom: 37px !important;
+}
+
 .mb40 {
     margin-bottom: 40px !important;
 }
 
 .ml10 {
     margin-left: 10px !important;
+}
+
+.ml15 {
+    margin-left: 15px !important;
 }
 
 .ml20 {
@@ -425,6 +452,10 @@ ul li {
 
 .mgt75 {
     margin-top: 75px;
+}
+
+.mgt65 {
+    margin-top: 65px;
 }
 
 .mg27 {
@@ -498,6 +529,12 @@ ul li {
 
 .wdf-flex1 {
     flex: 1;
+}
+
+.qkl-bd {
+    border-radius: 4px;
+    border: 2px solid #F4F3F7;
+
 }
 
 #login-platform {
@@ -633,7 +670,9 @@ ul li {
 }
 
 .kf-dt {
-    background-color: #f6f6f6;
+    background: url("../static/sdzwqkl/mapBackground.png") center no-repeat;
+    background-size: 100% 100%;
+    min-height:710px;
     min-width: 1080px;
 }
 
@@ -689,12 +728,19 @@ ul li {
     text-align: center;
     font-size: 14px;
     color: #FFFFFF;
+
+}
+
+.kf-footer {
+    margin-right: 5px;
 }
 
 .footer-bottom {
     border-top: 1px solid #707070;
     margin-top: 20px !important;
     padding: 20px 0;
+    justify-content: center;
+    display: flex;
 }
 
 .bannerbody {
@@ -771,6 +817,11 @@ ul li {
 
 .bggrey {
     background-color: #f6f6f6;
+    padding: 1px 0 70px;
+}
+
+.bgfff {
+    background-color: #fff;
     padding: 1px 0 70px;
 }
 
@@ -1584,6 +1635,9 @@ ul li {
 .kf-ewm-title {
     display: block;
     color: #919591;
+    font-size: 12px;
+    font-family: PingFang SC-常规体, PingFang SC;
+    font-weight: normal;
 }
 
 .map-particles {
