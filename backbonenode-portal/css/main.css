@@ -31,6 +31,9 @@ ul li {
 
 
 /** 字体相关 **/
+.ls1 {
+    letter-spacing: 1px;
+}
 
 .fs12 {
     font-size: 12px;
@@ -101,6 +104,10 @@ ul li {
 
 .bg0 {
     background-color: #000000;
+}
+
+.clf {
+    color: #fff;
 }
 
 .bgf {
@@ -176,6 +183,10 @@ ul li {
     width: 10%;
 }
 
+.w15 {
+    width: 15%;
+}
+
 .w20 {
     width: 20%;
 }
@@ -219,6 +230,18 @@ ul li {
 
 .w100 {
     width: 100%;
+}
+
+.w280 {
+    width: 280px;
+}
+
+.h220 {
+    height: 220px
+}
+
+.h150 {
+    height: 150px
 }
 
 .h100 {
@@ -279,6 +302,10 @@ ul li {
 
 .pb70 {
     padding-bottom: 70px;
+}
+
+.pb70 {
+    padding-bottom: 95px;
 }
 
 .pb20 {
@@ -361,6 +388,11 @@ ul li {
 .mt40 {
     margin-top: 40px;
 }
+
+.mt38 {
+    margin-top: 38px;
+}
+
 
 .mt70 {
     margin-top: 70px !important;
@@ -481,9 +513,7 @@ ul li {
 
 /** 布局相关 **/
 
-.kf-center {
-    /* background-image: ; */
-}
+
 
 .disb {
     display: block;
@@ -564,13 +594,17 @@ ul li {
 }
 
 .kf-center {
-    padding-bottom: 70px;
     background: url('../static/kfzz/2235.png') center no-repeat;
     background-position: top;
     width: 100%;
     min-height: 1260px;
     background-size: cover;
     color: #FFFFFF;
+}
+
+.sd-tt {
+    width: 84px;
+    height: 80px
 }
 
 .posr {
@@ -672,7 +706,7 @@ ul li {
 .kf-dt {
     background: url("../static/sdzwqkl/mapBackground.png") center no-repeat;
     background-size: 100% 100%;
-    min-height:710px;
+    min-height: 710px;
     min-width: 1080px;
 }
 
@@ -714,7 +748,7 @@ ul li {
 
 
 .h4-line:after {
-    width: 30px;
+    width: 25px;
     display: block;
     border-bottom: 1px solid #1d77e5;
     content: " ";
@@ -739,6 +773,14 @@ ul li {
     border-top: 1px solid #707070;
     margin-top: 20px !important;
     padding: 20px 0;
+    justify-content: center;
+    display: flex;
+}
+
+.footer-bottom-kf {
+    border-top: 1px solid #373B41;
+    margin-top: 20px !important;
+    padding: 12px 0;
     justify-content: center;
     display: flex;
 }
@@ -823,6 +865,11 @@ ul li {
 .bgfff {
     background-color: #fff;
     padding: 1px 0 70px;
+}
+
+.bgfff-kf {
+    background-color: #fff;
+    padding: 1px 0 65px;
 }
 
 .pmodel {
@@ -1144,6 +1191,11 @@ ul li {
     padding: 0px 0px 46px;
 }
 
+.strengths-font-kf {
+    margin: 0 auto;
+    padding: 0px 0px 65px;
+}
+
 .bfbw45 {
     display: flex;
     /* align-content: center; */
@@ -1158,6 +1210,10 @@ ul li {
 
 .bfbw80 {
     width: 1180px;
+}
+
+.bfbw100 {
+    width: 100%;
 }
 
 .bfbw70 {
@@ -1398,7 +1454,19 @@ ul li {
 .footer-two {
     /* background-color: #000000; */
     /* background: url('../static/xhlw-sy/gywm_1.png') center no-repeat; */
-    padding: 50px 0px 0px;
+    padding-top: 50px
+}
+
+.footer-pt40 {
+    /* background-color: #000000; */
+    /* background: url('../static/xhlw-sy/gywm_1.png') center no-repeat; */
+    padding-top: 40px
+}
+
+.footer-pt25 {
+    /* background-color: #000000; */
+    /* background: url('../static/xhlw-sy/gywm_1.png') center no-repeat; */
+    padding-top: 25px
 }
 
 .bcg-img {
@@ -1502,6 +1570,11 @@ ul li {
     padding-right: 8px;
 }
 
+.kf-ft-bg {
+
+    background-color: #282F3C
+}
+
 /*  开发者中心*/
 .kf-item1-m {
     margin-top: 20px;
@@ -1555,13 +1628,17 @@ ul li {
 }
 
 .kf-subtitle-name {
-    margin-bottom: 25px;
-
+    font-family: PingFang SC-常规体, PingFang SC;
+    font-weight: normal;
+    color: #333333;
+    letter-spacing: 1px;
+    line-height: 1.7;
 }
 
 .kf-items-all {
     display: flex;
     justify-content: space-between;
+    margin-top: 25px;
 }
 
 .kf-items-img {
@@ -2327,4 +2404,51 @@ p a {
 
 .pL40 {
     padding-left: 40px;
+}
+
+.screenTitle {
+    background: url('../static/sdzwqkl/screenTitle.png') no-repeat center;
+    width: 100%;
+    background-position: top;
+    min-height: 120px;
+
+}
+
+.infoPic {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.screenTotal {
+    width: 180Px;
+    height: 75Px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    background: url('../static/sdzwqkl/screenTotle.png') no-repeat;
+
+}
+
+.totalName {
+    margin: 9Px 0;
+    padding: 0;
+    width: 100%;
+    font-size: 13Px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #E0EFFA;
+}
+
+.totalValue {
+    margin: 0;
+    padding: 0;
+    font-size: 25Px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    font-weight: normal;
+    color: #4AEEFA;
 }
