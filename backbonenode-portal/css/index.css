@@ -135,7 +135,7 @@
     box-sizing: border-box;
     position: absolute;
     width: 50%;
-    top: 200px;
+    top: 50%;
     left: 0;
     padding-left: calc((100% - 1180px) / 2);
     transform: translateY(-50%);
