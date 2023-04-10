@@ -56,7 +56,8 @@
     <script src="js/echarts.js" type="text/javascript"></script>
     <script src="js/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="./js/map_data/shandong.json"></script>
-      <script src="js/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="./js/map_data/china.json"></script>
+    <script src="js/echarts-gl.min.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/particles-app.js"></script>
 </body>
@@ -67,8 +68,12 @@
     console.log(shandong)
     let nc = document.getElementById("barChart");
     var myChart = this.echarts.init(nc);
-    this.echarts.registerMap("山东", { geoJSON: shandong });
+    this.echarts.registerMap("shandong", { geoJSON: shandong });
 
+
+
+
+    echarts.registerMap('shandong', { geoJson: shandong });
     var sdGeoCoordMap = {
         济南市: [117.000923, 36.675807],
         青岛市: [120.355173, 36.082982],
@@ -87,47 +92,6 @@
         济宁市: [116.587245, 35.415393],
         德州市: [116.307428, 37.453968],
     };
-
-    var that = this;
-
-    var opt = {
-        bgColor: "#3835f8", // 画布背景色
-        mapName: "山东", // 地图名
-        goDown: true, // 是否下钻
-
-        // 数据展示
-        data: [],
-    };
-
-
-    var idx = 0;
-    var pos = {
-        //层级位置
-        leftPlus: 55,
-        leftCur: 50,
-        left: 10,
-        top: 10,
-    };
-
-    var line = [
-        //箭头
-        [0, 0],
-        [8, 11],
-        [0, 22],
-    ];
-
-    // 头部导航style样式
-    var style = {
-        font: '18px "Microsoft YaHei", sans-serif',
-        textColor: "#0c3973",
-        lineColor: "rgba(147, 235, 248, .8)",
-    };
-
-    // 地图 三角标
-    var zuanshi =
-        "image://data:image/png;base64,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";
-
-
     var data_tmp = [
         { name: "济南市", value: 24 },
         { name: "青岛市", value: 48 },
@@ -160,89 +124,120 @@
         }
         return res;
     };
-
-    var series = [];
-    [["济南市", data_tmp]].forEach(function (item, i) {
-        series.push(
-            // // 下面圆点
-            {
-
-                type: 'effectScatter',//散点图
-                // symbol: zuanshi,  // 地图 三角标
-                symbolSize: 12,
-                zlevel: 2,
-                rippleEffect: { //涟漪特效
-                    period: 4, //动画时间，值越小速度越快
-                    brushType: 'stroke', //波纹绘制方式 stroke, fill
-                    scale: 4 //波纹圆环最大限制，值越大波纹越大,
+    option = {
+        geo: {
+            map: 'shandong',
+            // aspectScale: 0.75, //长宽比
+            roam: false,
+            layoutCenter: ["50%", "40%"],
+            layoutSize: "100%",
+            itemStyle: {
+                normal: {
+                    areaColor: "rgb(3, 94, 198,)",
+                    shadowColor: 'rgb(126,246,255,.8)',
+                    shadowOffsetY: 10
                 },
-                label: {
-                    normal: {
-                        formatter: "{b}",
-                        position: "right",
-                        show: false, //是否显示地名
-                    },
-                    emphasis: {
-                        show: true,
-                    },
-                },
-                itemStyle: {
-                    normal: {
-                        color: "rgb(255,187,96,1)",
-                        //  borderColor: 'rgb(255,187,96,.5)',
-                        //  borderWidth: 10,
-                    },
-                },
-                name: "light",
-                // type: "scatter",
-                coordinateSystem: "geo",
-                data: converntData(
-                    data_tmp
-                    // .sort(function (a, b) {
-                    //     return b.value - a.value;
-                    // })
-                    // .slice(0, 20)
-                ),
-
+                emphasis: {
+                    borderWidth: 0,
+                    label: {
+                        show: false
+                    }
+                }
             },
-            // {
-            //     type: "map",
-            //     map: "shandong",
-            //     geoIndex: 0,
-            //     aspectScale: 0.75, //长宽比
-            //     showLegendSymbol: false, // 存在legend时显示
+            label: {
+                show: false
+            }
+
+        },
+        series: [{
+            type: 'map',
+            roam: false,
+            layoutCenter: ["50%", "40%"],
+            layoutSize: "100%",
+            label: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                emphasis: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            },
+            select: false,
+            //  {
+
             //     label: {
-            //         normal: {
-            //             show: false,
-            //         },
-            //         emphasis: {
-            //             // show: false,
-            //             textStyle: {
-            //                 color: "#fff",
-            //             },
-            //         },
+            //         show: true,
+            //         color: "#fff",//选中区域文字颜色
             //     },
-            //     roam: false,
-            //     // itemStyle: {
-            //     //     normal: {
-            //     //         areaColor: "#031525",
-            //     //         borderColor: "#FFFFFF",
-            //     //     },
-            //     //     emphasis: {
-            //     //         areaColor: "#0c3973",
-            //     //     },
-            //     // },
-            //     animation: false,
-            //     data: data_tmp,
+            //     itemStyle: {
+            //        areaColor: 'rgb(0, 60, 121 )', //选中区域颜色
+            //        borderWidth: 0.1
+            //     }
             // },
+            itemStyle: {
+                normal: {
+                    borderColor: "rgba(132,188, 223)",
+                    borderWidth: 1,
+                    areaColor: "rgb(40,96,160)",
+                },
+                emphasis: {
+                    areaColor: 'rgb(0, 60, 121 )',
+                    //    shadowColor: 'rgb(12,25,50)',
+                    borderWidth: 0.1
+                }
+            },
+            //     roam: false,
+            map: 'shandong' //使用
+            // data: this.difficultData //热力图数据   不同区域 不同的底色
+        },
+        {
 
-        );
-    });
+            type: 'effectScatter',//散点图
+            // symbol: zuanshi,  // 地图 三角标
+            symbolSize: 12,
+            zlevel: 2,
+            rippleEffect: { //涟漪特效
+                period: 4, //动画时间，值越小速度越快
+                brushType: 'stroke', //波纹绘制方式 stroke, fill
+                scale: 4 //波纹圆环最大限制，值越大波纹越大,
+            },
+            label: {
+                normal: {
+                    formatter: "{b}",
+                    position: "right",
+                    show: false, //是否显示地名
+                },
+                emphasis: {
+                    show: false, //是否显示地名
+                },
+            },
+            itemStyle: {
+                normal: {
+                    color: "rgb(255,187,96,1)",
+                    //  borderColor: 'rgb(255,187,96,.5)',
+                    //  borderWidth: 10,
+                },
+            },
+            name: "light",
+            // type: "scatter",
+            coordinateSystem: "geo",
+            data: converntData(
+                data_tmp
+                // .sort(function (a, b) {
+                //     return b.value - a.value;
+                // })
+                // .slice(0, 20)
+            ),
 
-    // console.log(series);
+        },
+        ],
 
-    var that = this;
-    var option = {
+
         tooltip: {
             trigger: 'item',
             backgroundColor: 'rgba(0,0,0,0)',
@@ -265,19 +260,7 @@
             formatter: function (item) {
                 console.log(item)
                 console.log(`output->  item.componentSubType`, item.componentSubType)
-                if (item.componentSubType === "lines") {
-                    var tipHtml1 = "";
-                    tipHtml1 =
-                        '<div  style="background:#fff;display:flex ;width:131px ;overflow: hidden;height: 41px; align - items: center; border - radius: 10px; box - shadow: 0 0 2px rgb(88, 222, 251);">' +
-                        '<divstyle=" background-color: #FFBB60; width: 40px;height: 41px;display: flex; align-items: center;    text-align: center;    padding-left: 12px;">' +
-                        `<img src='./static/sdzwqkl/1969.png' alt='#'>` +
-                        '</div>' +
-                        '<div style="color: #000;height: 41px;line-height: 41px;width: 93px;font-size:14px; background - color: #fff; text - align: center;">' +
-                        '电子证照链' +
-                        "</div>" +
-                        "</div>";
-                    return tipHtml1;
-                } else if (item.componentSubType === "effectScatter") {
+                if (item.componentSubType === "effectScatter") {
                     var tipHtml2 = "";
                     tipHtml2 =
                         '<div  style="background:#fff;display:flex ;width:131px ;overflow: hidden;height: 41px; align-items: center; border-radius: 10px; box-shadow: 0 0 2px rgb(88, 222, 251);">' +
@@ -291,20 +274,6 @@
                         "</div>" +
                         "</div>";
                     return tipHtml2;
-                } else if (item.componentSubType === "scatter") {
-                    var tipHtml3 = "";
-                    tipHtml3 =
-                        '<div  style="background:#fff;display:flex ;width:131px ;overflow: hidden;height: 41px; align-items: center; border-radius: 10px; box-shadow: 0 0 2px rgb(88, 222, 251);">' +
-                        '<div style=" background-color: #FFBB60; width: 40px;height: 41px;display: flex; align-items: center;    text-align: center;    padding-left: 12px;">' +
-                        `<img src='./static/sdzwqkl/1969.png' alt='#'>` +
-                        '</div>' +
-                        '<div style="color: #000;height: 41px;line-height: 41px;width: 93px;font-size:14px; background-color: #fff; text-align: center;">' +
-                        '电子证照链' +
-
-
-                        "</div>" +
-                        "</div>";
-                    return tipHtml3;
                 }
             },
             itemStyle: {
@@ -315,180 +284,20 @@
                 },
             },
         },
-        // 整块背景颜色
-        // backgroundColor: "rgb(0,0,0,0)", //背景色透明
-        // graphic: [
-        //     {
-
-        //         type: "group",
-        //         left: 0,
-        //         top: pos.top - 4,
-        //         //左上角线
-        //         children: [
-        //             {
-        //                 type: "line",
-        //                 left: 0,
-        //                 top: -20,
-        //                 shape: {
-        //                     x1: 0,
-        //                     y1: 0,
-        //                     x2: 85,
-        //                     y2: 0,
-        //                 },
-        //                 style: {
-        //                     stroke: style.lineColor,
-        //                 },
-        //             },
-        //             {
-        //                 type: "line",
-        //                 left: 0,
-        //                 top: 20,
-        //                 shape: {
-        //                     x1: 0,
-        //                     y1: 0,
-        //                     x2: 85,
-        //                     y2: 0,
-        //                 },
-        //                 style: {
-        //                     stroke: style.lineColor,
-        //                 },
-        //             },
-        //         ],
-        //     },
-        //     //左上角文字
-        //     {
-        //         id: name[idx],
-        //         type: "group",
-        //         left: 2,
-        //         top: pos.top,
-        //         children: [
-        //             {
-        //                 type: "polyline",
-        //                 left: 90,
-        //                 top: -12,
-        //                 shape: {
-        //                     points: line,
-        //                 },
-        //                 style: {
-        //                     stroke: "transparent",
-        //                     key: name[0],
-        //                 },
-        //                 onclick: function () {
-        //                     var name = this.style.key;
-        //                     handleEvents.resetOption(myChart, option, name);
-        //                 },
-        //             },
-        //             {
-        //                 type: "text",
-        //                 left: 0,
-        //                 top: "middle",
-        //                 style: {
-        //                     text: "山东省",
-        //                     textAlign: "center",
-        //                     fill: style.textColor,
-        //                     font: style.font,
-        //                 },
-
-
-        //             },
-        //             {
-        //                 type: "text",
-        //                 left: 0,
-        //                 top: 10,
-        //                 style: {
-        //                     text: "SHANDONG",
-        //                     textAlign: "center",
-        //                     fill: style.textColor,
-        //                     font: '12px "Microsoft YaHei", sans-serif',
-        //                 },
-
-        //             },
-        //         ],
-        //     },
-        // ],
-
-        //比例缩放
-        geo: {
-            map: "山东",
-
-            layoutCenter: ["50%", "40%"],
-            layoutSize: "105%",
-
-            //   selectedMode: "single",//选中一个
-            select: {
-                label: {
-                    show: true,
-                    color: "#fff",//选中区域文字颜色
-                },
-                itemStyle: {
-                    areaColor: "rgb(0, 60, 121 ,.7)", //选中区域颜色
-                }
-            },
-
-            label: {
-                normal: {
-                    show: true, //地图区域文字显示及颜色
-                    textStyle: {
-                        color: "#fff",
-                    },
-                },
-                emphasis: {
-                    textStyle: {
-                        color: "#fff",
-                    },
-                },
-            },
-            roam: false, //是否允许缩放
-            mapLocation: {
-                width: "110%",
-                height: "97%",
-            },
-
-            itemStyle: {
-                normal: {
-                    // 边框颜色
-                    borderColor: "rgba(132,188, 223)",
-                    borderWidth: 1,
-                    // areaColor: "rgb(15,72,138,0.5)",
-                    // areaColor: "rgb(154, 220, 255,.5)",
-                    areaColor: "rgb(3, 94, 198,.3)",
-                    // areaColor: {
-                    //     type: "radial",
-                    //     x: 1.5,
-                    //     y: 0.5,
-                    //     r: 0.8,
-                    //     globalCoord: false, // 缺省为 false
-                    // },
-                    // shadowColor: "rgba(128, 217, 248, 1)",
-                    // shadowColor: 'rgba(255, 255, 255, 1)',
-                    // shadowOffsetX: -2,
-                    // shadowOffsetY: 2,
-                    // shadowBlur: 10,
-                    //  inRange: {  // 渐变颜色范围
-
-                    //     color: ['#00FA9A', '#00FF7F', '#7FFF00'],
-
-                    // },
-                },
-                emphasis: {
-                    areaColor: "rgb(0, 60, 121 ,.7)", //鼠标移动到区域的颜色
-                    focus: 'none',
-                    disabled: false, //,
-
-                },
-
-            },
-
-        },
-        series: series,
     };
-    myChart.setOption(option);
-    myChart.on("mouseover", function (params) {
-        // if (!params.data) {// 根据该区域的数据进行判断即可	
-        myChart.dispatchAction({
-            type: 'downplay'
-        });
-    });
+    myChart.setOption(option, true);
+
+
+
+    // myChart.on("mouseover", function (params) {
+
+
+
+    //     // if (!params.data) {// 根据该区域的数据进行判断即可	
+    //     myChart.dispatchAction({
+    //         type: 'downplay'
+    //     });
+    // });
 
     // 鼠标设置为小手
     // myChart.getZr().on('mousemove', param => {
