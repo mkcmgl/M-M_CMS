@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
-   
+    <title>铜仁市3D地图(点击地图区域跳转到相应页面)</title>
 
     <script src="js/jquery.min.js" type="text/javascript"></script>
     <script src="js/echarts.js"></script>
@@ -28,7 +28,7 @@
         // myChart.showLoading();
         
             $.getJSON(uploadedDataURL, function (geoJson) {
-                console.log(`output->geoJson`, geoJson)
+                // console.log(`output->geoJson`, geoJson)
             })
         // 引入JSON文件
   
@@ -47,7 +47,7 @@
                 tooltip: {							// 提示框
                     trigger: 'item',
                     formatter: function (params) {
-                        console.log(`output->params`,params)
+                        // console.log(`output->params`,params)
                         return params.name;
                     }
                 },
@@ -111,7 +111,7 @@
 
 
 
-                    shading: 'color' ,       // 三维地理坐标系组件中三维图形的着色效果，echarts-gl 中支持下面三种着色方式:
+                    shading: 'color',       // 三维地理坐标系组件中三维图形的着色效果，echarts-gl 中支持下面三种着色方式:
                     // 'color' 只显示颜色，不受光照等其它因素的影响。
                     // 'lambert' 通过经典的 lambert 着色表现光照带来的明暗。
                     // 'realistic' 真实感渲染，配合 light.ambientCubemap 和 postEffect 使用可以让展示的画面效果和质感有质的提升。ECharts GL 中使用了基于物理的渲染（PBR） 来表现真实感材质。

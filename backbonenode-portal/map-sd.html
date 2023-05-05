@@ -64,7 +64,7 @@
 </html>
 
 <script>
-    console.log(shandong)
+    // console.log(shandong)
     let nc = document.getElementById("barChart");
     var myChart = this.echarts.init(nc);
     this.echarts.registerMap("山东", { geoJSON: shandong });
@@ -263,8 +263,8 @@
             // transitionDuration: 0,
             // extraCssText: 'z-index:100',
             formatter: function (item) {
-                console.log(item)
-                console.log(`output->  item.componentSubType`,  item.componentSubType)
+                // console.log(item)
+                // console.log(`output->  item.componentSubType`,  item.componentSubType)
                 if (item.componentSubType === "lines") {
                     var tipHtml1 = "";
                     tipHtml1 =
